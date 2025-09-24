@@ -8,7 +8,7 @@ export default function Home() {
         <Image
           className={styles.logo}
           src="/next.svg"
-          alt="Next.js logo"
+          alt="Hello logo"
           width={180}
           height={38}
           priority
@@ -18,6 +18,7 @@ export default function Home() {
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>Good.</li>
         </ol>
 
         <div className={styles.ctas}>
