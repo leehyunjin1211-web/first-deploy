@@ -1,35 +1,36 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function Home() {
+// 서버 컴포넌트에서 직접 API 호출
+async function getResumeInfo() {
+  const res = await fetch(
+    "https://raw.githubusercontent.com/leehyunjin1211-web/first-deploy/refs/heads/main/service/resume_general_info_service.json"
+  );
+  // API 응답이 성공적인지 확인
+  if (!res.ok) {
+    // 응답이 실패하면 오류를 던져 Next.js가 오류 페이지를 보여주도록 함
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export default async function Home() {
+  const data = await getResumeInfo();
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Image
           className={styles.logo}
-
           src="/LG.logo.jpg"
           alt="LG.logo"
-
-          src="/next.svg"
-          alt="Hello logo"
-
           width={180}
           height={50}
           priority
         />
         <ol>
-
           <li>안녕하세요!!!</li>
           <li>LG CNS INSPIRE CAMP 3기 입니다</li>
-          <li>비 전공자 이현진 이라고 합니다!</li>
-
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-          <li>Good.</li>
-
+          <li>비 전공자 {data.name} 이라고 합니다!</li>
         </ol>
 
         <div className={styles.ctas}>
