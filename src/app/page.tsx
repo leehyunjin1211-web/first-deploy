@@ -7,16 +7,29 @@ export default function Home() {
       <main className={styles.main}>
         <Image
           className={styles.logo}
+
           src="/LG.logo.jpg"
           alt="LG.logo"
+
+          src="/next.svg"
+          alt="Hello logo"
+
           width={180}
           height={50}
           priority
         />
         <ol>
+
           <li>안녕하세요!!!</li>
           <li>LG CNS INSPIRE CAMP 3기 입니다</li>
           <li>비 전공자 이현진 이라고 합니다!</li>
+
+          <li>
+            Get started by editing <code>src/app/page.tsx</code>.
+          </li>
+          <li>Save and see your changes instantly.</li>
+          <li>Good.</li>
+
         </ol>
 
         <div className={styles.ctas}>
